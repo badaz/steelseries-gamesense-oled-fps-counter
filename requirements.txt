@@ -1,2 +1,3 @@
-matplotlib
 fps_inspector_sdk
+pywin32
+gamesense[sync]
