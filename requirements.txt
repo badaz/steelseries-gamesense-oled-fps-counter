@@ -1,0 +1,2 @@
+matplotlib
+fps_inspector_sdk
