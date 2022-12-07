@@ -8,22 +8,6 @@ from pystray import Icon, Menu, MenuItem
 import threading
 import os
 
-def on_quit_callback(systray):
-    exit()
-
-def create_image(width, height, color1, color2):
-    # Generate an image and draw a pattern
-    image = Image.new('RGB', (width, height), color1)
-    dc = ImageDraw.Draw(image)
-    dc.rectangle(
-        (width // 2, 0, width, height // 2),
-        fill=color2)
-    dc.rectangle(
-        (0, height // 2, width // 2, height),
-        fill=color2)
-
-    return image
-
 
 def start_counter():
     gs = gamesense.GameSense("FPS_COUNTER", "FPS Counter")
@@ -63,13 +47,14 @@ def start_counter():
         print(event_resp.data)
 
     while not exit_event.is_set():
-        pid = int (GetWindowThreadProcessId(GetForegroundWindow())[1])
-        fps_inspector.start_fliprate_recording (pid)
-        time.sleep (0.5)
-        fps_inspector.stop_fliprate_recording ()
-        data = fps_inspector.get_all_fliprates ()
+        pid = int(GetWindowThreadProcessId(GetForegroundWindow())[1])
+        fps_inspector.start_fliprate_recording(pid)
+        time.sleep(0.5)
+        fps_inspector.stop_fliprate_recording()
+        data = fps_inspector.get_all_fliprates()
 
-        fps = int(data.get('FPS').to_list()[0]) if len(data.get('FPS').to_list()) > 0 else None
+        fps = int(data.get('FPS').to_list()[0]) if len(
+            data.get('FPS').to_list()) > 0 else None
 
         if fps is not None:
             data = {
@@ -88,19 +73,23 @@ def start_counter():
             if not send_hb_resp.success:
                 print(send_hb_resp.data)
 
+
 def exit(icon: Icon) -> None:
     icon.visible = False
     exit_event.set()
     icon.stop()
 
+
 def setup(icon: Icon) -> None:
     icon.visible = True  # Required to make the systray icon show up
 
     while not exit_event.is_set():  # This exits the loop if exit is ever set -> program was quit
-         start_counter()
-         exit_event.wait(5)  # allows exiting while waiting. time.sleep would block
+        start_counter()
+        # allows exiting while waiting. time.sleep would block
+        exit_event.wait(5)
 
-def main ():
+
+def main():
     # This event is used to stop the loop.
     global exit_event
     exit_event = threading.Event()
@@ -113,5 +102,6 @@ def main ():
 
         icon.run(setup=setup)
 
+
 if __name__ == "__main__":
-    main ()
+    main()
