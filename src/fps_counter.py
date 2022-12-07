@@ -6,6 +6,7 @@ from win32process import GetWindowThreadProcessId
 from PIL import Image, ImageDraw
 from pystray import Icon, Menu, MenuItem
 import threading
+import os
 
 def on_quit_callback(systray):
     exit()
@@ -104,18 +105,13 @@ def main ():
     global exit_event
     exit_event = threading.Event()
 
-    # Create and run the icon
-    icon = Icon('Amazing Systray')
-    icon.menu = Menu(
-        MenuItem('Quit', exit)
-    )
-    icon.icon = create_image(64, 64, 'black', 'white')
+    with Image.open(os.path.join(os.path.dirname(__file__), "assets\\image\\meter.png")) as im:
+        im.load()
+        icon = Icon('Apex Pro FPS Counter', im, 'Apex Pro FPS Counter', Menu(
+            MenuItem('Quit', exit)
+        ))
 
-    # with Image.open('assets\\image\\meter.ico') as im:
-    #     im.load()
-    #     icon.icon = im
-
-    icon.run(setup=setup)
+        icon.run(setup=setup)
 
 if __name__ == "__main__":
     main ()
