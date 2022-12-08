@@ -3,10 +3,11 @@ import gamesense
 from fps_inspector_sdk import fps_inspector
 from win32gui import GetForegroundWindow
 from win32process import GetWindowThreadProcessId
-from PIL import Image, ImageDraw
+from PIL import Image
 from pystray import Icon, Menu, MenuItem
 import threading
 import os
+import sys
 
 
 def start_counter():
@@ -74,6 +75,15 @@ def start_counter():
                 print(send_hb_resp.data)
 
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.join(os.path.dirname(__file__))
+
+    return os.path.join(base_path, relative_path)
+
+
 def exit(icon: Icon) -> None:
     icon.visible = False
     exit_event.set()
@@ -94,7 +104,7 @@ def main():
     global exit_event
     exit_event = threading.Event()
 
-    with Image.open(os.path.join(os.path.dirname(__file__), "assets\\image\\meter.png")) as im:
+    with Image.open(resource_path("meter.ico")) as im:
         im.load()
         icon = Icon('Apex Pro FPS Counter', im, 'Apex Pro FPS Counter', Menu(
             MenuItem('Quit', exit)
