@@ -1,6 +1,6 @@
-# Steelseries OLED FPS counter
+# Steelseries Gamesense OLED FPS counter
 
-Simple FPS counter for your Steelseries OLED screen
+A simple FPS counter for your Steelseries Gamesense OLED screen
 
 ## Install
 
