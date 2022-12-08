@@ -11,3 +11,4 @@ Run the program
 ## Compatibility
 
 Windows for now (tested on Windows 11)
+Tested on Apex Pro TKL Wireless (2023)
