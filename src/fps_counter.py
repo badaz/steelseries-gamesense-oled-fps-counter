@@ -106,7 +106,7 @@ def main():
 
     with Image.open(resource_path("meter.ico")) as im:
         im.load()
-        icon = Icon('Apex Pro FPS Counter', im, 'Apex Pro FPS Counter', Menu(
+        icon = Icon('Steelseries Gamesense FPS Counter', im, 'Steelseries Gamesense FPS Counter', Menu(
             MenuItem('Quit', exit)
         ))
 
