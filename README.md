@@ -34,7 +34,7 @@ pip install -r .\requirements.txt
 ```
 
 ### Patch fps_inspector_sdk
-The fps_inspector_sdk lib has a bug, a patch is required
+The fps_inspector_sdk lib has a bug (issue referenced [here](https://github.com/Andrey1994/fps_inspector_sdk/issues/2)), a patch is required
 
 ```PS
 python .\Lib\site-packages\patch.py .\fps_inspector_sdk.patch
