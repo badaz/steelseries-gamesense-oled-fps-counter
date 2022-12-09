@@ -4,7 +4,7 @@ A simple FPS counter for your Steelseries Gamesense OLED screen
 
 ## How it works
 
-Gets the currently focused window, records and sends FPS to OLED screen at regular intervals
+Gets the currently focused window, records and sends FPS to OLED screen using Gamesense local http APi at regular intervals
 
 Possible improvement: listen to window focus changes instead of requesting the PID of the currently focused window at the begining of each interval
 
