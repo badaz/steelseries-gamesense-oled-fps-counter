@@ -22,6 +22,12 @@ Tested on Apex Pro TKL Wireless (2023) and Windows 11 22H2
 
 ## Develop
 
+### Create and activate venv
+```PS
+python -m venv .
+.\Scripts\Activate.ps1
+```
+
 ### Install packages
 ```PS
 pip install -r .\requirements.txt
