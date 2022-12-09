@@ -1,0 +1,1 @@
+gh release create v0.1.2 '.\dist\Steelseries Gamesense OLED FPS Counter.exe' -F .\CHANGELOG.md
