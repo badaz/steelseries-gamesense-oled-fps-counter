@@ -1,5 +1,6 @@
 fps_inspector_sdk==1.0.8
-gamesense[sync]==0.0.5
+gamesense[sync]
 pystray==0.19.4
 pywin32==305
 patch==1.16
+pyinstaller==5.7.0
