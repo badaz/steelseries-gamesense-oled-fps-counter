@@ -1,1 +1,1 @@
-pyinstaller -F --onefile --add-data "src\meter.ico;." .\src\fps_counter.py --icon "src\meter.ico" --uac-admin --add-data "Lib\site-packages\fps_inspector_sdk\lib\PresentMon.dll;fps_inspector_sdk\lib\." --noconsole -n "Steelseries Gamesense OLED FPS Counter"
+pyinstaller -F --onefile --add-data "meter.ico;." .\fps_counter.py --icon "meter.ico" --uac-admin --add-data "Lib\site-packages\fps_inspector_sdk\lib\PresentMon.dll;fps_inspector_sdk\lib\." --noconsole -n "Steelseries Gamesense OLED FPS Counter"
